@@ -1,6 +1,7 @@
 import QRcode from 'qrcode.react';
 import { FC } from 'react';
 import { useQuery } from 'react-query';
+import { fetchInfo } from 'src/api/rest';
 import styled from 'styled-components';
 
 const S = {
@@ -20,7 +21,7 @@ const Index: FC = () => {
     url: string;
     max: number;
     min: number;
-  }>('info', () => fetch('/api/v1/info').then(res => res.json()));
+  }>('info', fetchInfo);
 
   if (isLoading) {
     return <div>Loading</div>;
