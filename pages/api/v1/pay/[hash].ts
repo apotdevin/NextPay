@@ -4,6 +4,7 @@ import { LndApi } from 'src/api/lnd';
 import { middlewares } from 'src/helpers/express';
 import { getHash } from 'src/helpers/crypto';
 import { env } from 'src/helpers/env';
+import { encode } from 'utf8';
 import { storedMetadata } from '..';
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
@@ -35,7 +36,7 @@ export default async function handler(req: Request, res: Response) {
 
   console.log(`Creating ${value} sat invoice for user ${hash}`);
 
-  const shaHash = getHash(storedMetadata, 'base64');
+  const shaHash = getHash(encode(storedMetadata), 'base64');
 
   const [invoice, error] = await toWithError<{ payment_request: string }>(
     LndApi.getInvoice(value, shaHash)
