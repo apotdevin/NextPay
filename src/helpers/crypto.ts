@@ -1,16 +1,14 @@
-import { BinaryLike, createHash, randomBytes } from 'crypto';
+import { createHash, randomBytes } from 'crypto';
 
-export const getHash = (
-  str: string | BinaryLike,
-  encoding: 'hex' | 'base64' = 'hex'
-) => createHash('sha256').update(str).digest(encoding);
+export const getHash = (str: string, encoding: 'hex' | 'base64' = 'hex') =>
+  createHash('sha256').update(str).digest(encoding);
 
 export const getRandomBytes = (
   length = 64,
   encoding: 'hex' | 'base64' = 'hex'
 ) => randomBytes(length).toString(encoding);
 
-export const toUTF8Array = (str: string): BinaryLike => {
+export const toUTF8Array = (str: string) => {
   const utf8 = [];
   for (let i = 0; i < str.length; i++) {
     let charcode = str.charCodeAt(i);
