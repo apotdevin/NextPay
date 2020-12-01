@@ -36,13 +36,14 @@ export default async function handler(req: Request, res: Response) {
 
   console.log(`Creating ${value} sat invoice for user ${hash}`);
 
-  const shaHash = getHash(encode(storedMetadata));
+  const shaHash = getHash(encode(storedMetadata), 'base64');
 
   const [invoice, error] = await toWithError<{ payment_request: string }>(
     LndApi.getInvoice(value, shaHash)
   );
 
   if (error || !invoice?.payment_request) {
+    console.log('Error creating invoice: ', { error, invoice });
     res.status(200).json({ status: 'ERROR', reason: 'ErrorCreatingInvoice' });
     return;
   }
