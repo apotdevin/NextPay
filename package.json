@@ -23,6 +23,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "bech32": "^1.1.4",
     "cors": "^2.8.5",
     "express-rate-limit": "^5.2.3",
     "next": "^10.0.1",
