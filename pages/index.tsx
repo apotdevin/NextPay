@@ -23,7 +23,7 @@ const Index: FC = () => {
   }>('info', () => fetch('/api/v1/info').then(res => res.json()));
 
   if (isLoading) {
-    return null;
+    return <div>Loading</div>;
   }
 
   if (error || !data) {
