@@ -12,14 +12,12 @@ export const IndexView = () => {
   }>('info', fetchInfo);
 
   if (isLoading) {
-    return <div>Loading</div>;
+    return <S.wrapper>Loading</S.wrapper>;
   }
 
   if (error || !data) {
-    return <div>Error</div>;
+    return <S.wrapper>Error</S.wrapper>;
   }
-
-  console.log({ isLoading, error, data });
 
   return (
     <S.wrapper>
