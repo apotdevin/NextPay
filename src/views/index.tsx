@@ -1,6 +1,7 @@
 import QRcode from 'qrcode.react';
 import { useQuery } from 'react-query';
 import { fetchInfo } from 'src/api/rest';
+import BounceLoader from 'react-spinners/BounceLoader';
 import { IndexStyles as S } from './index.styles';
 
 export const IndexView = () => {
@@ -12,11 +13,24 @@ export const IndexView = () => {
   }>('info', fetchInfo);
 
   if (isLoading) {
-    return <S.wrapper>Loading</S.wrapper>;
+    return (
+      <S.wrapper>
+        <BounceLoader color={'white'} />
+      </S.wrapper>
+    );
   }
 
   if (error || !data) {
-    return <S.wrapper>Error</S.wrapper>;
+    return (
+      <S.wrapper>
+        <S.card>
+          <S.cardTop>Error</S.cardTop>
+          <S.cardBottom>
+            Sorry for that! Please try loading the page again.
+          </S.cardBottom>
+        </S.card>
+      </S.wrapper>
+    );
   }
 
   return (
