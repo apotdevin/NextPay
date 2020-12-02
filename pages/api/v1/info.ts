@@ -10,5 +10,6 @@ export default async function handler(req: Request, res: Response) {
     url: encodeLnurl(`${env.url}/api/v1`),
     max: env.max,
     min: env.min,
+    name: env.name,
   });
 }

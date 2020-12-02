@@ -9,7 +9,8 @@ export const GlobalStyles = createGlobalStyle`
         box-sizing: border-box;
     }
     body {
-        background: white;
+        background: rgb(101,180,252);
+        background: linear-gradient(0deg, rgba(101,180,252,1) 0%, rgba(145,201,253,1) 100%);
         color: black;
         font-family: 'Manrope', sans-serif;
         text-rendering: optimizeLegibility;
