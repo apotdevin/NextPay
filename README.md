@@ -1,4 +1,4 @@
-# ![NextPay](/docs/nextpay.png) NextPay
+![NextPay](/docs/nextpay.png)
 
 Your very own LnUrl-Pay server built on NextJS
 
