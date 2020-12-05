@@ -24,7 +24,6 @@ Deploy this server anywhere, add some environment variables and you are good to 
 # -----------
 # Server Configs
 # -----------
-WEB_URL = 'https://yourOwnDomain.com' # Domain where your NextPay server will be available
 NAME = 'My NextPay' # Name that will appear in the card header
 
 # -----------
