@@ -49,7 +49,7 @@ export default async function handler(req: Request, res: Response) {
 
   const response = {
     pr: invoice.payment_request,
-    successAction: { tag: 'message', message: 'Thank you!' },
+    successAction: { tag: 'message', message: env.thankyou || 'Thank you!' },
     disposable: false,
     routes: [],
   };
