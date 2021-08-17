@@ -106,7 +106,7 @@ export const IndexStyles = {
     cursor: pointer;
   `,
   address: styled.div`
-    font-size: 22px;
+    font-size: 16px;
     font-weight: bold;
   `,
   addressWrapper: styled.div`
