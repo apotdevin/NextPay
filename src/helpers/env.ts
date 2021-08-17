@@ -3,6 +3,7 @@ export const env = {
   min: Number(process.env.MIN) || 0,
   metadata: process.env.META || 'NextPay Invoice',
   name: process.env.NAME || 'NextPay',
+  thankyou: process.env.THANKYOU || 'Thank you!',
 };
 
 export const metadata = JSON.stringify([['text/plain', env.metadata]]);
