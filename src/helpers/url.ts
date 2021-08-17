@@ -1,7 +1,8 @@
 import { Request } from 'express';
+import { env } from './env';
 
 export const absoluteUrl = (req: Request, setLocalhost?: string) => {
-  let protocol = 'https:';
+  let protocol = env.https == true ? 'https:' : 'http:';
   let host = req
     ? req.headers['x-forwarded-host'] || req.headers['host']
     : window.location.host;
