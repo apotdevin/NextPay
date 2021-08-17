@@ -73,4 +73,26 @@ export const IndexStyles = {
     width: 100%;
     text-align: center;
   `,
+  copy: styled.div`
+    margin: 0 0 8px;
+    font-size: 12px;
+    color: #686868;
+    width: 100%;
+    text-align: center;
+  `,
+  copySuccess: styled.div`
+    margin: 0 0 8px;
+    font-size: 12px;
+    color: #686868;
+    width: 100%;
+    text-align: center;
+    color: green;
+    font-weight: bolder;
+  `,
+  copyButton: styled.button`
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+  `,
 };

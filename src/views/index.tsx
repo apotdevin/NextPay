@@ -5,9 +5,11 @@ import BounceLoader from 'react-spinners/BounceLoader';
 import { useState } from 'react';
 import { IndexStyles as S } from './index.styles';
 import { Manual } from './Manual';
+import useCopyClipboard from 'src/hooks/UseClipboardCopy';
 
 export const IndexView = () => {
   const [isManual, setIsManual] = useState<boolean>(false);
+  const [isCopied, copy] = useCopyClipboard({ successDuration: 3000 });
 
   const { isLoading, error, data } = useQuery<{
     url: string;
@@ -43,7 +45,14 @@ export const IndexView = () => {
     }
     return (
       <>
-        <QRcode value={data.url} size={240} />
+        <S.copyButton onClick={() => copy(data.url)}>
+          {isCopied ? (
+            <S.copySuccess>Copied</S.copySuccess>
+          ) : (
+            <S.copy>Click QR to copy</S.copy>
+          )}
+          <QRcode value={data.url} size={240} />
+        </S.copyButton>
         <S.info>Scan with any lnurl compatible wallet</S.info>
       </>
     );
