@@ -13,5 +13,6 @@ export default async function handler(req: Request, res: Response) {
     max: env.max,
     min: env.min,
     name: env.name,
+    addressUser: env.addressUser,
   });
 }

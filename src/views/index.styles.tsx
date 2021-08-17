@@ -66,6 +66,16 @@ export const IndexStyles = {
       color: #0b53a7;
     }
   `,
+  by2: styled.a`
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.2);
+    font-size: 12px;
+    margin-top: 16px;
+
+    &:hover {
+      color: #0b53a7;
+    }
+  `,
   info: styled.div`
     margin: 8px 0 0;
     font-size: 14px;
@@ -94,5 +104,16 @@ export const IndexStyles = {
     background: transparent;
     padding: 0;
     cursor: pointer;
+  `,
+  address: styled.div`
+    font-size: 22px;
+    font-weight: bold;
+  `,
+  addressWrapper: styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   `,
 };
