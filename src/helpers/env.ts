@@ -5,6 +5,7 @@ export const env = {
   name: process.env.NAME || 'NextPay',
   thankyou: process.env.THANKYOU || 'Thank you!',
   https: JSON.parse(process.env.HTTPS || 'true'),
+  addressUser: process.env.LN_ADDRESS_USER || 'tip',
 };
 
 export const metadata = JSON.stringify([['text/plain', env.metadata]]);

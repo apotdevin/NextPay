@@ -2,6 +2,7 @@ import QRcode from 'qrcode.react';
 import { useState } from 'react';
 import { useMutation } from 'react-query';
 import { getInvoice } from 'src/api/rest';
+import useCopyClipboard from 'src/hooks/UseClipboardCopy';
 import styled from 'styled-components';
 import { IndexStyles } from './index.styles';
 
@@ -49,17 +50,25 @@ const S = {
 
 export const Manual = ({ max, min }: { max: number; min: number }) => {
   const [amount, setAmount] = useState<number>(Math.max(0, min));
+  const [isCopied, copy] = useCopyClipboard({ successDuration: 3000 });
 
-  const [invoice, { isLoading, error, data }] = useMutation(getInvoice);
+  const mutation = useMutation(getInvoice);
 
-  if (error) {
+  if (mutation.error) {
     return <div>Error getting invoice. Please try again</div>;
   }
 
-  if (data?.pr) {
+  if (mutation.data?.pr) {
     return (
       <>
-        <QRcode value={data.pr} size={240} />
+        <IndexStyles.copyButton onClick={() => copy(mutation.data.pr)}>
+          {isCopied ? (
+            <IndexStyles.copySuccess>Copied</IndexStyles.copySuccess>
+          ) : (
+            <IndexStyles.copy>Click QR to copy</IndexStyles.copy>
+          )}
+          <QRcode value={mutation.data.pr} size={240} />
+        </IndexStyles.copyButton>
         <IndexStyles.info>Scan with any lightning wallet</IndexStyles.info>
       </>
     );
@@ -94,7 +103,10 @@ export const Manual = ({ max, min }: { max: number; min: number }) => {
         type={'number'}
         onChange={e => setAmount(Number(e.target.value))}
       />
-      <S.button disabled={isLoading} onClick={() => invoice({ amount })}>
+      <S.button
+        disabled={mutation.isLoading}
+        onClick={() => mutation.mutate({ amount })}
+      >
         Get Invoice
       </S.button>
     </>

@@ -1,6 +1,6 @@
-import { toWords, encode } from 'bech32';
+import { bech32 } from 'bech32';
 
 export const encodeLnurl = (str: string) => {
-  const words = toWords(Buffer.from(str, 'utf-8'));
-  return encode('lnurl', words, 2000);
+  const words = bech32.toWords(Buffer.from(str, 'utf-8'));
+  return bech32.encode('lnurl', words, 2000);
 };
