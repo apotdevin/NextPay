@@ -18,6 +18,8 @@ Deploy this server anywhere, add some environment variables and you are good to 
 
 **Deploy it for free on [Vercel](https://vercel.com/).**
 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fapotdevin%2FNextPay&env=NAME,MAX,MIN,LND_MACAROON,LND_URL&envDescription=It's%20recommended%20that%20you%20use%20a%20macaroon%20that%20only%20has%20creating%20invoice%20permissions.%20The%20environment%20variables%20are%20never%20exposed%20to%20the%20public%20but%20better%20be%20safe%20than%20sorry.&envLink=https%3A%2F%2Fgithub.com%2Fapotdevin%2FNextPay%23environment-variables&demo-title=NextPay&demo-description=Your%20very%20own%20LNURL-Pay%20server%20built%20on%20NextJS.&demo-url=https%3A%2F%2Fnextpay.apotdevin.com&demo-image=https%3A%2F%2Fuser-images.githubusercontent.com%2F543668%2F143167362-71fa1247-c104-414a-a8aa-c244598592cd.png)
+
 ### Environment Variables
 
 ```bash
